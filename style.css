@@ -39,6 +39,11 @@ header{
     font-family: var(--font);
 }
 
+#countdown{
+    font-size: 35px;
+    font-family: var(--font); 
+}
+
 #questionBox{
     display: flex;
     justify-content: center;
@@ -54,7 +59,7 @@ header{
     margin-left: 50px;
 }
 
-#answer{
+#answer1{
     font-weight: bolder;
     background-color: rgb(152, 100, 201);
     font-size: 30px;
@@ -64,6 +69,72 @@ header{
     border-radius: 40px;
 }
 
-#answer:hover{
- border-color: aquamarine; 
+#answer1:hover{
+ border-color: gray; 
+ cursor: pointer;
+}
+
+#answer2{
+    font-weight: bolder;
+    background-color: rgb(152, 100, 201);
+    font-size: 30px;
+    padding: 10px;
+    margin: 20px;
+    border-style: solid;
+    border-radius: 40px;
+}
+
+#answer2:hover{
+ border-color: gray; 
+ cursor: pointer;
+}
+
+#answer3{
+    font-weight: bolder;
+    background-color: rgb(152, 100, 201);
+    font-size: 30px;
+    padding: 10px;
+    margin: 20px;
+    border-style: solid;
+    border-radius: 40px;
+}
+
+#answer3:hover{
+ border-color: gray; 
+ cursor: pointer;
+}
+
+#answer4{
+    font-weight: bolder;
+    background-color: rgb(152, 100, 201);
+    font-size: 30px;
+    padding: 10px;
+    margin: 20px;
+    border-style: solid;
+    border-radius: 40px;
+}
+
+#answer4:hover{
+ border-color: gray; 
+ cursor: pointer;
+}
+
+#playGame{
+    display: flex;
+    justify-content: center;
+}
+
+#playGameButton{
+    font-weight: bolder;
+    background-color: rgb(152, 100, 201);
+    font-size: 30px;
+    padding: 10px;
+    margin: 20px;
+    border-style: solid;
+    border-radius: 40px;
+}
+
+#playGameButton:hover{
+    border-color: gray; 
+    cursor: pointer;
 }
