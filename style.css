@@ -49,6 +49,21 @@ header{
    
 }
 
-#question{
+#answerContainer{
+    display: flex;
+    margin-left: 50px;
+}
 
+#answer{
+    font-weight: bolder;
+    background-color: rgb(152, 100, 201);
+    font-size: 30px;
+    padding: 10px;
+    margin: 20px;
+    border-style: solid;
+    border-radius: 40px;
+}
+
+#answer:hover{
+ border-color: aquamarine; 
 }
