@@ -1,32 +1,66 @@
 //global variables
 //connect JS to the question text, answer text, countdown, and highscore link
 
-const timer = document.getElementById("countdown");
-//const question = document.getElementById("question");
-const answer1 = document.getElementById("answer1"); 
-const answer2 = document.getElementById("answer2");
-const answer3 = document.getElementById("answer3");
-const answer4 = document.getElementById("answer4");
-const button = document.getElementById("playGameButton");
+var button = document.getElementById("playGameButton");
+var quizContainer = document.getElementById("quizContainer")
+var quizQuestions = document.getElementById("question");
+var a = document.getElementById("answer1"); 
+var b = document.getElementById("answer2");
+var c = document.getElementById("answer3");
+var d = document.getElementById("answer4");
+var timer = document.getElementById("countdown");
+var score = document.getElementById("scoreContainer");
+var quizQuestions = document.getElementById("answerContainer");
 var secondsLeft = 76; //the 75 doesnt display so i changed it to 76 but im sure thats not the right way to fix it
 var score = 0;
-var questions = document.getElementById("question") [
+
+//array containing questions answers and correct answer
+quizQuestions = [
     {
-        prompt: "What is the name of the content you put inside of []?"
+        question: "What is the name of the content you put inside of []?",
+        answers: {
+            a: 'Object',
+            b: 'String',
+            c: 'Array',
+            d: 'Number'
+        },
+        correctAnswer: 'c'
     },
     
     {
-        prompt: "What special character is used in CSS to represent the 'universal selector'?"
+        question: "What special character is used in CSS to represent the 'universal selector'?",
+        answers: {
+            a: '*',
+            b: '!',
+            c: '=',
+            d: '$'
+        },
+        correctAnswer: 'a'
     },
 
     {
-        prompt: "What is a 'boolean object'?"
+        question: "What is a value a 'boolean object' can represent?",
+        answers: {
+            a: 'String',
+            b: 'For Loop',
+            c: 'Math',
+            d: 'True'
+        },
+        correctAnswer: 'd'
     },
 
     {
-        prompt: "What HTML tag will insert line breaks in your text?"
+        question: "What HTML tag will insert line breaks in your text?",
+        answers: {
+            a: '<p>',
+            b: '<space>',
+            c: '<br>',
+            d: '<indent>'
+        },
+        correctAnswer: 'c'
     }
 ];
+ 
 
 
 
@@ -59,61 +93,12 @@ function setTime() {
   }
 };
 
-// function setTime() {
-    
-//     var timerInterval = setInterval(function() {
-//       secondsLeft--;
-//       timer.textContent = " " + secondsLeft;
 
-//       if(secondsLeft === 0) {
-//         clearInterval(timerInterval);
-//         //pop up asking for name and if youd like to record your score
-//       }
-  
-//     }, 1000);
-//   }
-
-// function playGame() {
-//     question.textContent = "What is the name of the content you put inside of [ ]?";
-
-//     answer1.textContent = "Object";
-//     answer1.addEventListener('click', wrongAnswer);
-    
-//     answer2.textContent = "String";
-//     answer2.addEventListener('click', wrongAnswer);
-
-//     answer3.textContent= "Array"; 
-//     answer3.addEventListener('click', correctAnswer);
-
-//     answer4.textContent = "number"
-//     answer4.addEventListener('click', wrongAnswer);
-    
-    
-//     correctAnswer();
-    
-//     wrongAnswer();
-// };
-
-
-// function correctAnswer() {
-//     points ++;
-//     secondsLeft ++;
-// };
-
-// function wrongAnswer() {
-//  secondsLeft --;
-//  points --;
-// };
-
-
+console.log(playGame);
   
 
 
 //call all the functions
 startButton();
-setTime();
-// playGame();
-// playGame2();
-// correctAnswer();
-// wrongAnswer();
-console.log(points);
+
+console.log(score);
