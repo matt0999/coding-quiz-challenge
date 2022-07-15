@@ -10,14 +10,15 @@ var c = document.getElementById("answer3");
 var d = document.getElementById("answer4");
 var timer = document.getElementById("countdown");
 var score = document.getElementById("scoreContainer");
-var secondsLeft = 76; //the 75 doesnt display so i changed it to 76 but im sure thats not the right way to fix it
+var secondsLeft = 75;//the 75 doesnt display so i changed it to 76 but im sure thats not the right way to fix it
 var score = 0;
 var index = 0;
 button.addEventListener('click', playGame);
-a.addEventListener('click', nextQuestion)
-b.addEventListener('click', nextQuestion)
-c.addEventListener('click', nextQuestion)
-d.addEventListener('click', nextQuestion)
+button.addEventListener('click', setTime);
+a.addEventListener('click', nextQuestion);
+b.addEventListener('click', nextQuestion);
+c.addEventListener('click', nextQuestion);
+d.addEventListener('click', nextQuestion);
 //array containing questions answers and correct answer
 quizArray = [
     {
@@ -28,7 +29,7 @@ quizArray = [
             c: 'Array',
             d: 'Number'
         },
-        correctAnswer: 'c'
+        correctAnswer: 'Array'
     },
     
     {
@@ -39,7 +40,7 @@ quizArray = [
             c: '=',
             d: '$'
         },
-        correctAnswer: 'a'
+        correctAnswer: '*'
     },
 
     {
@@ -50,7 +51,7 @@ quizArray = [
             c: 'Math',
             d: 'True'
         },
-        correctAnswer: 'd'
+        correctAnswer: 'True'
     },
 
     {
@@ -61,38 +62,58 @@ quizArray = [
             c: '<br>',
             d: '<indent>'
         },
-        correctAnswer: 'c'
+        correctAnswer: '<br>'
+    },
+
+    {
+        question: "",
+        answers: {
+            a: '',
+            b: '',
+            c: '',
+            d: ''
+        },
+        correctAnswer: '' 
     }
+
 ];
  
 
-
+console.log(quizArray[index]);
    
     
 
-        
+    var timer;
+    var timerInterval;  
+    var clearInterval; 
     function setTime() {
         
-        var timerInterval = setInterval(function() {
-          secondsLeft--;
-          timer.textContent = " " + secondsLeft;
-    
-          if(secondsLeft === 0) {
-            clearInterval(timerInterval);
-            //pop up asking for name and if youd like to record your score
-          }
-      
+        
+        var timerInterval = setInterval(() => {
+            timer.textContent = secondsLeft;
+            secondsLeft--;
+            
+            if (secondsLeft === 0) {
+                clearInterval(timerInterval);
+                timer.textContent = "";
+                gameEnd();
+            };
+            if (index === 4) {
+                clearInterval(timerInterval);
+                timer.textContent = "";
+            };
+            
         }, 1000);
-    }
+        
+
+    };
 
     
 
 function playGame() {
-    
-    setTime();
-    //array
-   var currentQuestion = quizArray[index];
 
+   var currentQuestion = quizArray[index];
+    
    var question = currentQuestion.question;
    var choiceA = currentQuestion.answers.a;
    var choiceB = currentQuestion.answers.b;
@@ -104,35 +125,42 @@ function playGame() {
     b.textContent = choiceB;
     c.textContent = choiceC;
     d.textContent = choiceD;
-    //objects
-    // string
 };
     
 function nextQuestion(event) {
+    
     var user = event.target.textContent;
-    var correctAnswer = quizArray[0].correctAnswer;
+    var correctAnswer = quizArray[index].correctAnswer;
+    
     index++;
-
     //user click == correct answer, ++ score and move on to next question
     //else -- score and - 5 seconds
+    
     if (correctAnswer == user) { 
-        score++;   
+        score++;
+        
     }else{
         score--;
-        secondsLeft = secondsLeft -5;    
-    }
+        secondsLeft = secondsLeft -5;
+           
+    };
 
-    playGame();     
+    if (index == 4){
+        gameEnd();
+    };
+
+    playGame();
+         
 };
 
-// if (correctAnswer) {
-//     score ++;
-// }else{
-//     score --;
-//     secondsLeft - 5;
-// }
+function gameEnd(){
+    
+    confirm("Your score is " + score + ". Would you like to record it?");
+};
 
-console.log(playGame);
+
+
+
 
 //functions
 //function for button that begins timer and questions
@@ -143,25 +171,9 @@ console.log(playGame);
 //link to highscores and store high scores with local storage
 
 //if you click the button more than once it speeds up the time, I need to fix that later
-function startButton(){
-button.addEventListener('click', setTime);
 
-button.addEventListener('click', playGame);
     
-function setTime() {
-    
-    var timerInterval = setInterval(function() {
-      secondsLeft--;
-      timer.textContent = " " + secondsLeft;
 
-      if(secondsLeft === 0) {
-        clearInterval(timerInterval);
-        //pop up asking for name and if youd like to record your score
-      }
-  
-    }, 1000);
-  }
-};
 
 
 
@@ -169,6 +181,5 @@ function setTime() {
 
 
 //call all the functions
-startButton();
 
 console.log(score);
