@@ -13,7 +13,7 @@ var timer = document.getElementById("countdown");
 var secondsLeft = 75;
 var score = 0;
 var index = 0;
-var highScore = localStorage.getItem ("scoreStorage") || 0;
+var highScore = localStorage.getItem ("score") || 0;
 button.addEventListener('click', playGame);
 button.addEventListener('click', setTime);
 a.addEventListener('click', nextQuestion);
@@ -25,7 +25,7 @@ quizArray = [
     {
         question: "What is the name of the content you put inside of []?",
         answers: {
-            a: 'Object',
+            a: 'Target',
             b: 'String',
             c: 'Array',
             d: 'Number'
@@ -139,12 +139,12 @@ function nextQuestion(event) {
     
     if (correctAnswer == user) { 
         score++;
-        localStorage.setItem ("scoreStorage", score);
+        localStorage.setItem ("score", score);
         
     }else{
-        score--;
+        
         secondsLeft = secondsLeft -5;
-        localStorage.setItem ("scoreStorage", score);  
+        localStorage.setItem ("score", score);  
     };
 
     if (index == 4){
@@ -157,7 +157,14 @@ function nextQuestion(event) {
 
 function gameEnd(){
     
-    confirm("Your score is " + score + ". Would you like to record it?");
+    // confirm("Your score is " + score + ". Would you like to record it?");
+    // window.location.href = "file:///C:/Users/matth/code/bootcamp-homework/week-4-code-quiz/coding-quiz-challenge/scorePage/score.html";
+    if (confirm("Your score is " + score + ". Would you like to record it?") == true) {
+        window.location.href = "file:///C:/Users/matth/code/bootcamp-homework/week-4-code-quiz/coding-quiz-challenge/scorePage/score.html";
+    }else{
+        location.reload();
+    }
+
 };
 
 

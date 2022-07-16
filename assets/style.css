@@ -125,6 +125,7 @@ header{
 }
 
 #playGameButton{
+    font-family: var(--font);
     font-weight: bolder;
     background-color: rgb(152, 100, 201);
     font-size: 30px;
