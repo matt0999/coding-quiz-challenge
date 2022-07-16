@@ -9,10 +9,11 @@ var b = document.getElementById("answer2");
 var c = document.getElementById("answer3");
 var d = document.getElementById("answer4");
 var timer = document.getElementById("countdown");
-var score = document.getElementById("scoreContainer");
-var secondsLeft = 75;//the 75 doesnt display so i changed it to 76 but im sure thats not the right way to fix it
+// var score = document.getElementById("scoreContainer");
+var secondsLeft = 75;
 var score = 0;
 var index = 0;
+var highScore = localStorage.getItem ("scoreStorage") || 0;
 button.addEventListener('click', playGame);
 button.addEventListener('click', setTime);
 a.addEventListener('click', nextQuestion);
@@ -138,11 +139,12 @@ function nextQuestion(event) {
     
     if (correctAnswer == user) { 
         score++;
+        localStorage.setItem ("scoreStorage", score);
         
     }else{
         score--;
         secondsLeft = secondsLeft -5;
-           
+        localStorage.setItem ("scoreStorage", score);  
     };
 
     if (index == 4){
