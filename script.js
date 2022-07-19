@@ -160,7 +160,7 @@ function gameEnd(){
     // confirm("Your score is " + score + ". Would you like to record it?");
     // window.location.href = "file:///C:/Users/matth/code/bootcamp-homework/week-4-code-quiz/coding-quiz-challenge/scorePage/score.html";
     if (confirm("Your score is " + score + ". Would you like to record it?") == true) {
-        window.location.href = "file:///C:/Users/matth/code/bootcamp-homework/week-4-code-quiz/coding-quiz-challenge/scorePage/score.html";
+        window.location.href = "./scorePage/score.html";
     }else{
         location.reload();
     }
