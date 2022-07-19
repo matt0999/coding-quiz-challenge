@@ -12,12 +12,14 @@ submitButton.addEventListener("click", function(event){
     }else {
         localStorage.setItem("userName", userName);
     }
-
+localStorage.setItem("scores", JSON.stringify (scores));
     recordScore();
 
 }); 
 
 
+
 function recordScore() {
     scoreList.textContent = localStorage.getItem("userName") + ": " + localStorage.getItem("score");
+   var grade = JSON.parse (localStorage.getItem("scores"));
 };
