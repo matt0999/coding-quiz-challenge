@@ -109,7 +109,7 @@ console.log(quizArray[index]);
 
     };
 
-    
+
 
 function playGame() {
 
