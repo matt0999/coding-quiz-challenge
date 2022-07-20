@@ -16,7 +16,7 @@ submitButton.addEventListener("click", function(event){
         
         localStorage.setItem("scoreBoard", JSON.stringify(scoreBoard));
     }
-localStorage.setItem("scores", JSON.stringify (scores));
+    localStorage.setItem("scores", JSON.stringify (scores));
     recordScore();
 
 }); 
@@ -24,6 +24,6 @@ localStorage.setItem("scores", JSON.stringify (scores));
 
 
 function recordScore() {
-    scoreList.textContent = localStorage.getItem("userName") + ": " + localStorage.getItem("score");
-   var grade = JSON.parse (localStorage.getItem("scores"));
+    scoreList.textContent = JSON.parse (localStorage.getItem("userName")) + ": " + JSON.parse (localStorage.getItem("score"));
+//    var grade = JSON.parse (localStorage.getItem("scores"));
 };
