@@ -24,6 +24,6 @@ submitButton.addEventListener("click", function(event){
 
 
 function recordScore() {
-    scoreList.textContent = JSON.parse (localStorage.getItem("userName")) + ": " + JSON.parse (localStorage.getItem("score"));
-//    var grade = JSON.parse (localStorage.getItem("scores"));
+    scoreList.textContent = JSON.parse (localStorage.getItem("scoreBoard"))[0].name + ": " + JSON.parse (localStorage.getItem("score"));
+ var grade = JSON.parse (localStorage.getItem("scores"));
 };
